@@ -2,9 +2,12 @@
 package pcap
 
 /*
+#cgo CFLAGS: -I. -Isrc/vendor/libpcap-libpcap-1.7.4/pcap/ -Isrc/vendor/libpcap-libpcap-1.7.4/ -I../../src/vendor/libpcap-libpcap-1.7.4/pcap/ -I../../src/vendor/libpcap-libpcap-1.7.4
+#cgo LDFLAGS:  -L. -Lsrc/vendor/libpcap-libpcap-1.7.4/ -Lsrc/vendor/libpcap-libpcap-1.7.4/pcap/ -L../../src/vendor/libpcap-libpcap-1.7.4/pcap/ -L../../src/vendor/libpcap-libpcap-1.7.4
 #cgo LDFLAGS: -lpcap
 #include <stdlib.h>
 #include <pcap.h>
+
 
 // Workaround for not knowing how to cast to const u_char**
 int hack_pcap_next_ex(pcap_t * p, struct pcap_pkthdr **pkt_header,
